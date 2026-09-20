@@ -4,10 +4,21 @@ iOS/macOS binary analysis and ARM64 reverse engineering. I write and maintain my
 tooling for it, and I keep these repositories in the open so the code can be read and
 re-run rather than taken on trust.
 
-The repositories below are tooling: static analysis, de-obfuscation and automation.
-Each one states what it has and has not been verified against.
+Each repository below states what it has and has not been verified against —
+including the one that is mostly other people's code.
 
 ---
+
+#### [SharedSourceKits](https://github.com/dhtfish988/SharedSourceKits)
+
+An iOS kernel research library, and mostly integration work rather than original
+research: the exploit implementations come from
+[kfd](https://github.com/felix-pb/kfd), and the wrappers and helpers from
+[Dopamine](https://github.com/opa334/Dopamine), XPF, Choma and libgrabkernel2, with
+their notices kept in
+[THIRD_PARTY_NOTICES.md](https://github.com/dhtfish988/SharedSourceKits/blob/main/THIRD_PARTY_NOTICES.md).
+Build-verified only — it has never been run on a device here, and the README says so.
+For research on hardware you own.
 
 #### [machoaudit](https://github.com/dhtfish988/machoaudit)
 
@@ -45,17 +56,6 @@ A small macOS menu-bar app: translation as you type, and OCR on a pasted screens
 through Apple's Vision framework. SwiftUI, no API key, no configuration. The privacy
 policy is published at
 [dhtfish988.github.io/CDTranslator](https://dhtfish988.github.io/CDTranslator/).
-
-#### [SharedSourceKits](https://github.com/dhtfish988/SharedSourceKits)
-
-An iOS kernel research library, and mostly integration work rather than original
-research: the exploit implementations come from
-[kfd](https://github.com/felix-pb/kfd), and the wrappers and helpers from
-[Dopamine](https://github.com/opa334/Dopamine), XPF, Choma and libgrabkernel2, with
-their notices kept in
-[THIRD_PARTY_NOTICES.md](https://github.com/dhtfish988/SharedSourceKits/blob/main/THIRD_PARTY_NOTICES.md).
-Build-verified only — it has never been run on a device here, and the README says so.
-For research on hardware you own.
 
 ---
 
