@@ -44,8 +44,9 @@ in its README. Intended for sites you own or are authorised to automate.
 
 #### [CDTranslator](https://github.com/dhtfish988/CDTranslator)
 
-A small macOS menu-bar app: translation as you type, and OCR on a pasted screenshot
-through Apple's Vision framework. SwiftUI, no API key, no configuration. The privacy
+A small macOS desktop app: translation as you type, and local OCR on a pasted
+screenshot through Apple's Vision framework. Text, including OCR results, is sent
+to Google for translation. SwiftUI, no API key. The privacy
 policy is published at
 [dhtfish988.github.io/CDTranslator](https://dhtfish988.github.io/CDTranslator/).
 
