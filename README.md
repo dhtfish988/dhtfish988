@@ -1,46 +1,32 @@
 ### dhtfish988
 
-iOS/macOS binary analysis and ARM64 reverse engineering. I maintain the projects
-below, including original tools, work based on upstream code and integration work.
-Their READMEs and verification notes describe the sources, changes and testing.
+Public tools for Mach-O signing inspection, AArch64 dispatch analysis, and a
+Chrome DevTools bridge. Each README says what was tested and what was not.
 
 ---
 
-#### [SharedSourceKits](https://github.com/dhtfish988/SharedSourceKits)
+#### [MachOInspect](https://github.com/dhtfish988/MachOInspect)
 
-An iOS kernel research library. My work here is integration and maintenance of
-upstream components: the exploit implementations come from
-[kfd](https://github.com/felix-pb/kfd), and the wrappers and helpers from
-[Dopamine](https://github.com/opa334/Dopamine), XPF, Choma and libgrabkernel2, with
-their notices kept in
-[THIRD_PARTY_NOTICES.md](https://github.com/dhtfish988/SharedSourceKits/blob/main/THIRD_PARTY_NOTICES.md).
-The repository records build checks, but no on-device validation. Intended for
-research on hardware you own or are authorised to test.
+A C++20 library and command-line tool. It reads Mach-O signing metadata, declared
+entitlements, hardening settings and resource seals. It does not authenticate CMS
+signatures, validate a certificate chain, or decide which permissions the operating
+system grants. `codesign -v` does that check. The macOS validation notes are in
+[docs/VERIFICATION.md](https://github.com/dhtfish988/MachOInspect/blob/main/docs/VERIFICATION.md).
 
-#### [machoaudit](https://github.com/dhtfish988/machoaudit)
+#### [A64Dispatch](https://github.com/dhtfish988/A64Dispatch)
 
-A Python tool I maintain for inspecting Mach-O signing structures, entitlements,
-hardening settings and bundle resource seals. It reports structural findings; it
-does not verify the cryptographic signature or replace `codesign`. Unit tests and
-comparisons with `codesign` are documented in
-[VERIFICATION.md](https://github.com/dhtfish988/machoaudit/blob/main/docs/VERIFICATION.md).
+A C++20 library and command-line tool for AArch64 dispatch analysis and same-size
+branch rewriting, with a thin IDA adapter. The baseline is deflat64, which is based
+on DumpA1n's unflatten64. Finite examples do not show that a rewrite matches every
+input. IDA 9.4 checks on one owned fixture are recorded in the repository. Linux
+and Windows have not been run.
 
-#### [deflat64](https://github.com/dhtfish988/deflat64)
+#### [ChromeRelay](https://github.com/dhtfish988/ChromeRelay)
 
-Experimental ARM64 control-flow-flattening and VM-dispatch analysis tooling for
-IDA Pro. My maintenance includes CLI restructuring, expanded pure-Python tests,
-CI and documentation. Code provenance and changes are recorded in
-[CHANGELOG.md](https://github.com/dhtfish988/deflat64/blob/main/CHANGELOG.md).
-The pure-Python layers have unit tests; the full IDA pipeline has not been validated
-in a live session. See
-[VERIFICATION.md](https://github.com/dhtfish988/deflat64/blob/main/docs/VERIFICATION.md).
-
-#### [UltimateBrowserJS](https://github.com/dhtfish988/UltimateBrowserJS)
-
-A Node.js MCP server I maintain for automating an existing Chrome session through
-the DevTools Protocol. It supports navigation, forms, frames, tabs, storage,
-screenshots and assertions, and includes fingerprint-masking scripts as described
-in its README. Intended for sites you own or are authorised to automate.
+A C++20 bridge from MCP to an existing Chrome over the DevTools Protocol. It has
+54 canonical actions and 75 legacy names. The recorded browser tests used temporary
+profiles on macOS. They do not cover arbitrary pages. The tool does not install a
+fingerprint-masking script.
 
 #### [CDTranslator](https://github.com/dhtfish988/CDTranslator)
 
@@ -52,5 +38,5 @@ policy is published at
 
 ---
 
-Questions and bug reports are welcome through each repository's issues. Upstream
-authors and licenses are credited in the relevant repositories.
+Questions and bug reports go through each repository's issues. Upstream authors
+and licenses are credited in the repositories.
