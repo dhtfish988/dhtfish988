@@ -10,7 +10,8 @@ Chrome DevTools bridge. Each README says what was tested and what was not.
 A C++20 library and command-line tool. It reads Mach-O signing metadata, declared
 entitlements, hardening settings and resource seals. It does not authenticate CMS
 signatures, validate a certificate chain, or decide which permissions the operating
-system grants. `codesign -v` does that check. The macOS validation notes are in
+system grants. Use `codesign -v` for signature verification; that result does not
+establish which permissions the operating system actually granted. The macOS validation notes are in
 [docs/VERIFICATION.md](https://github.com/dhtfish988/MachOInspect/blob/main/docs/VERIFICATION.md).
 
 #### [A64Dispatch](https://github.com/dhtfish988/A64Dispatch)
